@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Saw Jedidiah | Portfolio</title>
+  <title>Saw Jedidiah | Junior Frontend Developer</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -44,7 +44,7 @@
       left: 0;
       width: 100%;
       z-index: 1000;
-      background: rgba(8, 11, 22, 0.82);
+      background: rgba(8, 11, 22, 0.84);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
@@ -90,14 +90,14 @@
       padding-top: 90px;
       background:
         radial-gradient(circle at top left, rgba(56, 189, 248, 0.25), transparent 35%),
-        radial-gradient(circle at bottom right, rgba(168, 85, 247, 0.22), transparent 35%),
-        linear-gradient(135deg, #080b16 0%, #0f172a 45%, #111827 100%);
+        radial-gradient(circle at bottom right, rgba(139, 92, 246, 0.25), transparent 38%),
+        linear-gradient(135deg, #080b16 0%, #0f172a 50%, #111827 100%);
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.25fr 0.75fr;
-      gap: 45px;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 50px;
       align-items: center;
     }
 
@@ -113,9 +113,10 @@
     }
 
     .hero h1 {
-      font-size: clamp(40px, 7vw, 72px);
-      line-height: 1.1;
+      font-size: clamp(42px, 7vw, 74px);
+      line-height: 1.08;
       margin-bottom: 18px;
+      color: #ffffff;
     }
 
     .hero h1 span {
@@ -125,7 +126,7 @@
     }
 
     .hero h2 {
-      font-size: 22px;
+      font-size: 21px;
       color: #cbd5e1;
       font-weight: 500;
       margin-bottom: 18px;
@@ -171,11 +172,12 @@
     .profile-card {
       background: rgba(255, 255, 255, 0.06);
       border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 28px;
-      padding: 30px;
+      border-radius: 30px;
+      padding: 32px;
       box-shadow: 0 24px 80px rgba(0, 0, 0, 0.25);
       backdrop-filter: blur(16px);
       animation: float 5s ease-in-out infinite;
+      text-align: center;
     }
 
     @keyframes float {
@@ -183,35 +185,25 @@
       50% { transform: translateY(-14px); }
     }
 
-    . {
-      width: 110px;
-      height: 110px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #38bdf8, #7c3aed);
-      display: grid;
-      place-items: center;
-      font-size: 45px;
-      margin-bottom: 20px;
+    .profile-image {
+      width: 170px;
+      height: 170px;
+      margin: 0 auto 22px;
     }
 
-    .profile-image{
-      width:140px;
-      height:140px;
-      margin-bottom:20px;
-    }
-    
-    .profile-image img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      border-radius:50%;
-      border:4px solid #38bdf8;
-      box-shadow:0 0 25px rgba(56,189,248,.5);
+    .profile-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #38bdf8;
+      box-shadow: 0 0 35px rgba(56, 189, 248, 0.55);
     }
 
     .profile-card h3 {
-      font-size: 24px;
+      font-size: 25px;
       margin-bottom: 8px;
+      color: #ffffff;
     }
 
     .profile-card p {
@@ -234,8 +226,13 @@
 
     .stat-box strong {
       display: block;
-      font-size: 22px;
+      font-size: 20px;
       color: #38bdf8;
+    }
+
+    .stat-box span {
+      color: #94a3b8;
+      font-size: 13px;
     }
 
     section {
@@ -258,6 +255,7 @@
     .section-title h2 {
       font-size: clamp(30px, 4vw, 44px);
       margin-top: 10px;
+      color: #ffffff;
     }
 
     .card {
@@ -282,7 +280,7 @@
 
     .skills-grid,
     .projects-grid,
-    .cert-grid,
+    .education-grid,
     .contact-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -292,15 +290,15 @@
     .skill-card i,
     .project-card i,
     .contact-card i,
-    .cert-card i {
-      font-size: 28px;
+    .education-card i {
+      font-size: 30px;
       color: #38bdf8;
       margin-bottom: 15px;
     }
 
     .skill-card h3,
     .project-card h3,
-    .cert-card h3,
+    .education-card h3,
     .contact-card h3 {
       margin-bottom: 10px;
       color: #ffffff;
@@ -308,10 +306,48 @@
 
     .skill-card p,
     .project-card p,
-    .cert-card p,
+    .education-card p,
     .contact-card p {
       color: #94a3b8;
       font-size: 14px;
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .project-link {
+      padding: 8px 13px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      color: #7dd3fc;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .tag {
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.1);
+      color: #7dd3fc;
+      font-size: 12px;
+      border: 1px solid rgba(56, 189, 248, 0.22);
     }
 
     .timeline {
@@ -349,7 +385,6 @@
       margin-bottom: 8px;
     }
 
-    .timeline-item p,
     .timeline-item li {
       color: #94a3b8;
       font-size: 14px;
@@ -358,22 +393,6 @@
     .timeline-item ul {
       margin-left: 18px;
       margin-top: 10px;
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 16px;
-    }
-
-    .tag {
-      padding: 6px 12px;
-      border-radius: 999px;
-      background: rgba(56, 189, 248, 0.1);
-      color: #7dd3fc;
-      font-size: 12px;
-      border: 1px solid rgba(56, 189, 248, 0.22);
     }
 
     footer {
@@ -395,6 +414,16 @@
       .profile-card {
         animation: none;
       }
+
+      .hero {
+        padding-top: 120px;
+        padding-bottom: 50px;
+      }
+
+      .profile-image {
+        width: 145px;
+        height: 145px;
+      }
     }
   </style>
 </head>
@@ -405,24 +434,24 @@
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
-        <li><a href="#experience">Experience</a></li>
         <li><a href="#projects">Projects</a></li>
-        <li><a href="#certificates">Certificates</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#experience">Experience</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
   </nav>
 
-  <header class="hero">
+  <header class="hero" id="home">
     <div class="container hero-grid">
       <div class="hero-text">
-        <span class="badge">Available for freelance and entry-level opportunities</span>
-        <h1>Hi, I'm <span>Saw Jedidiah</span></h1>
-        <h2>Data Entry Specialist | QA Tester | Junior Frontend Developer</h2>
+        <span class="badge">Available for Frontend Developer Opportunities</span>
+        <h1>Frontend Developer Building Modern <span>Web Experiences</span></h1>
+        <h2>HTML • CSS • JavaScript • Bootstrap • Tailwind CSS • Laravel</h2>
         <p>
-          I build reliable digital work through accurate data handling, careful quality assurance,
-          and modern frontend development. I enjoy learning, solving problems, and delivering clean,
-          organized work for clients and teams.
+          I create responsive, user-friendly, and modern websites using frontend technologies.
+          I enjoy turning ideas into clean digital experiences while continuously improving my
+          skills in web development, UI design, and problem solving.
         </p>
         <div class="buttons">
           <a href="#projects" class="btn btn-primary"><i class="fa-solid fa-laptop-code"></i> View Projects</a>
@@ -432,26 +461,26 @@
 
       <div class="profile-card">
         <div class="profile-image">
-          <img src="profile.jpeg" alt="Saw Jedidiah">
+          <img src="profile.jpeg" alt="Saw Jedidiah" />
         </div>
-        <h3>Detail-Oriented Professional</h3>
-        <p>Focused on data accuracy, clear communication, QA testing, and frontend learning.</p>
+        <h3>Junior Frontend Developer</h3>
+        <p>Passionate about responsive web design, clean layouts, and modern user experiences.</p>
         <div class="stats">
           <div class="stat-box">
-            <strong>3+</strong>
-            <span>Focus Areas</span>
+            <strong>HTML</strong>
+            <span>Structure</span>
           </div>
           <div class="stat-box">
-            <strong>100%</strong>
-            <span>Remote Ready</span>
+            <strong>CSS</strong>
+            <span>Responsive UI</span>
           </div>
           <div class="stat-box">
-            <strong>BA</strong>
-            <span>English</span>
+            <strong>JS</strong>
+            <span>Interactive Web</span>
           </div>
           <div class="stat-box">
-            <strong>NCC</strong>
-            <span>Computing</span>
+            <strong>Laravel</strong>
+            <span>Backend Basics</span>
           </div>
         </div>
       </div>
@@ -462,29 +491,25 @@
     <div class="container">
       <div class="section-title">
         <span>About Me</span>
-        <h2>Who I Am</h2>
+        <h2>Junior Frontend Developer</h2>
       </div>
       <div class="card about-text">
         <p>
-          I am a detail-oriented and motivated professional with experience in community development,
-          data collection, content moderation, and quality assurance. I hold a Bachelor of Arts (English)
-          from Yangon University of Distance Education and an NCC Education Level 4 Diploma in Computing.
+          I am a Junior Frontend Developer with a background in computing and community development.
+          I hold an NCC Education Level 4 Diploma in Computing and a Bachelor of Arts in English.
         </p>
         <p>
-          Previously, I worked as a Community Development Facilitator with World Vision International
-          (Myanmar), supporting COVID-19 response activities and collaborating with local communities
-          and authorities. I also volunteered in mental health survey data collection, where I developed
-          strong communication, organization, and data management skills.
+          My technical skills include HTML, CSS, JavaScript, Bootstrap, Tailwind CSS, PHP, Laravel,
+          and MySQL. I enjoy creating responsive websites, improving user experiences, and learning
+          modern web technologies.
         </p>
         <p>
-          My professional strengths include attention to detail, accurate data handling, problem-solving,
-          and the ability to work independently in remote environments. I have experience using Microsoft
-          Office, Google Workspace, and online collaboration tools.
+          My previous experience in community development, data collection, content moderation, and
+          quality assurance has strengthened my communication, attention to detail, and problem-solving abilities.
         </p>
         <p>
-          Currently, I am expanding my technical skills in HTML, CSS, Bootstrap, TailwindCSS, JavaScript,
-          jQuery, Laravel, MySQL, PHP, QA Testing, and Frontend Development. I am actively seeking
-          opportunities in Data Entry, Virtual Assistance, Quality Assurance, and Junior Frontend Development.
+          I am currently seeking opportunities to grow as a Frontend Developer and contribute to meaningful
+          digital products, websites, and web applications.
         </p>
       </div>
     </div>
@@ -493,39 +518,132 @@
   <section id="skills">
     <div class="container">
       <div class="section-title">
-        <span>My Skills</span>
-        <h2>What I Can Do</h2>
+        <span>Tech Stack</span>
+        <h2>Skills I Use</h2>
       </div>
       <div class="skills-grid">
         <div class="card skill-card">
-          <i class="fa-solid fa-keyboard"></i>
-          <h3>Data Entry</h3>
-          <p>Accurate typing, formatting, data organization, and spreadsheet management.</p>
+          <i class="fa-brands fa-html5"></i>
+          <h3>HTML5</h3>
+          <p>Semantic structure, clean markup, forms, and accessible website sections.</p>
         </div>
         <div class="card skill-card">
-          <i class="fa-solid fa-table"></i>
-          <h3>Google Sheets & Excel</h3>
-          <p>Data cleaning, basic formulas, structured tables, and organized records.</p>
+          <i class="fa-brands fa-css3-alt"></i>
+          <h3>CSS3</h3>
+          <p>Responsive layouts, modern UI, animations, flexbox, grid, and custom styling.</p>
         </div>
         <div class="card skill-card">
-          <i class="fa-solid fa-bug"></i>
-          <h3>QA Testing</h3>
-          <p>Bug reporting, visual testing, content checking, and clear reproduction steps.</p>
+          <i class="fa-brands fa-js"></i>
+          <h3>JavaScript</h3>
+          <p>Interactive web pages, DOM manipulation, basic logic, and dynamic features.</p>
         </div>
         <div class="card skill-card">
-          <i class="fa-solid fa-code"></i>
-          <h3>Frontend Development</h3>
-          <p>HTML, CSS, JavaScript, responsive design, Bootstrap, and TailwindCSS.</p>
+          <i class="fa-brands fa-bootstrap"></i>
+          <h3>Bootstrap & Tailwind</h3>
+          <p>Fast responsive design, reusable components, spacing systems, and UI layouts.</p>
+        </div>
+        <div class="card skill-card">
+          <i class="fa-brands fa-php"></i>
+          <h3>PHP & Laravel</h3>
+          <p>Backend fundamentals, Laravel basics, routing, CRUD concepts, and web app structure.</p>
         </div>
         <div class="card skill-card">
           <i class="fa-solid fa-database"></i>
-          <h3>Web Basics</h3>
-          <p>PHP, Laravel, MySQL, jQuery, and basic website structure understanding.</p>
+          <h3>MySQL & Tools</h3>
+          <p>Database basics, GitHub, VS Code, Chrome DevTools, and remote collaboration tools.</p>
         </div>
-        <div class="card skill-card">
-          <i class="fa-solid fa-comments"></i>
-          <h3>Communication</h3>
-          <p>Community communication, reporting support, teamwork, and remote collaboration.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <div class="section-title">
+        <span>Projects</span>
+        <h2>Selected Web Development Work</h2>
+      </div>
+      <div class="projects-grid">
+        <div class="card project-card">
+          <i class="fa-solid fa-globe"></i>
+          <h3>Personal Portfolio Website</h3>
+          <p>A responsive portfolio website with modern dark UI, profile section, project cards, and mobile-friendly layout.</p>
+          <div class="tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">Responsive</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link">Live Demo</a>
+            <a href="https://github.com/Saw-Jedidiah/portfolio-website" target="_blank" class="project-link">GitHub</a>
+          </div>
+        </div>
+
+        <div class="card project-card">
+          <i class="fa-solid fa-cloud-sun"></i>
+          <h3>Weather App</h3>
+          <p>A weather application concept using API integration, city search, temperature display, and responsive design.</p>
+          <div class="tags">
+            <span class="tag">JavaScript</span>
+            <span class="tag">API</span>
+            <span class="tag">UI Design</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link">Coming Soon</a>
+          </div>
+        </div>
+
+        <div class="card project-card">
+          <i class="fa-solid fa-list-check"></i>
+          <h3>Task Manager App</h3>
+          <p>A task management app concept with add, complete, delete, and local storage features.</p>
+          <div class="tags">
+            <span class="tag">JavaScript</span>
+            <span class="tag">LocalStorage</span>
+            <span class="tag">DOM</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link">Coming Soon</a>
+          </div>
+        </div>
+
+        <div class="card project-card">
+          <i class="fa-solid fa-database"></i>
+          <h3>Laravel CRUD System</h3>
+          <p>A basic CRUD system concept using Laravel, PHP, and MySQL for managing records.</p>
+          <div class="tags">
+            <span class="tag">Laravel</span>
+            <span class="tag">PHP</span>
+            <span class="tag">MySQL</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link">Coming Soon</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="container">
+      <div class="section-title">
+        <span>Education</span>
+        <h2>Certificates & Qualifications</h2>
+      </div>
+      <div class="education-grid">
+        <div class="card education-card">
+          <i class="fa-solid fa-laptop-code"></i>
+          <h3>NCC Education Level 4 Diploma in Computing</h3>
+          <p>Includes website development, software development, database design, computer networks, and office solutions.</p>
+        </div>
+        <div class="card education-card">
+          <i class="fa-solid fa-graduation-cap"></i>
+          <h3>Bachelor of Arts (English)</h3>
+          <p>Yangon University of Distance Education</p>
+        </div>
+        <div class="card education-card">
+          <i class="fa-solid fa-code"></i>
+          <h3>Continuous Web Development Learning</h3>
+          <p>Practicing frontend development, responsive design, JavaScript projects, and Laravel basics.</p>
         </div>
       </div>
     </div>
@@ -542,95 +660,28 @@
           <h3>Community Development Facilitator</h3>
           <p class="company">World Vision International (Myanmar)</p>
           <ul>
-            <li>Supported COVID-19 response activities.</li>
+            <li>Supported COVID-19 response activities and community coordination.</li>
             <li>Worked with local communities and authorities.</li>
-            <li>Collected information and supported reporting tasks.</li>
+            <li>Developed communication, reporting, and problem-solving skills.</li>
           </ul>
         </div>
         <div class="timeline-item">
           <h3>Volunteer Survey Enumerator</h3>
           <p class="company">Yangon Kayin Baptist Women Association</p>
           <ul>
-            <li>Collected mental health survey data.</li>
+            <li>Collected and organized survey data accurately.</li>
             <li>Communicated with community members professionally.</li>
-            <li>Organized collected information carefully.</li>
+            <li>Strengthened attention to detail and data handling skills.</li>
           </ul>
         </div>
         <div class="timeline-item">
-          <h3>Content Moderation</h3>
+          <h3>Content Moderation & Quality Review</h3>
           <p class="company">Online / Remote Work Experience</p>
           <ul>
             <li>Reviewed digital content based on guidelines.</li>
-            <li>Maintained attention to detail during repetitive tasks.</li>
-            <li>Improved judgment, accuracy, and quality checking skills.</li>
+            <li>Maintained accuracy during repetitive quality checking tasks.</li>
+            <li>Built strong judgment and detail-focused review habits.</li>
           </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="projects">
-    <div class="container">
-      <div class="section-title">
-        <span>Projects</span>
-        <h2>Selected Work</h2>
-      </div>
-      <div class="projects-grid">
-        <div class="card project-card">
-          <i class="fa-solid fa-globe"></i>
-          <h3>Portfolio Website</h3>
-          <p>A personal responsive portfolio website built to present my skills, experience, and projects.</p>
-          <div class="tags">
-            <span class="tag">HTML</span>
-            <span class="tag">CSS</span>
-            <span class="tag">Responsive</span>
-          </div>
-        </div>
-        <div class="card project-card">
-          <i class="fa-solid fa-clipboard-check"></i>
-          <h3>QA Bug Report Samples</h3>
-          <p>Sample bug reports with title, steps to reproduce, expected result, actual result, and screenshots.</p>
-          <div class="tags">
-            <span class="tag">QA</span>
-            <span class="tag">Testing</span>
-            <span class="tag">Bug Report</span>
-          </div>
-        </div>
-        <div class="card project-card">
-          <i class="fa-solid fa-file-excel"></i>
-          <h3>Data Entry Sample</h3>
-          <p>A spreadsheet sample showing data organization, formatting, cleaning, and accuracy.</p>
-          <div class="tags">
-            <span class="tag">Excel</span>
-            <span class="tag">Google Sheets</span>
-            <span class="tag">Data Cleaning</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="certificates">
-    <div class="container">
-      <div class="section-title">
-        <span>Education</span>
-        <h2>Certificates & Qualifications</h2>
-      </div>
-      <div class="cert-grid">
-        <div class="card cert-card">
-          <i class="fa-solid fa-graduation-cap"></i>
-          <h3>Bachelor of Arts (English)</h3>
-          <p>Yangon University of Distance Education</p>
-        </div>
-        <div class="card cert-card">
-          <i class="fa-solid fa-laptop"></i>
-          <h3>NCC Education Level 4 Diploma in Computing</h3>
-          <p>Computing, software development, database, networks, and website development.</p>
-        </div>
-        <div class="card cert-card">
-          <i class="fa-solid fa-certificate"></i>
-          <h3>QA / Testing Learning</h3>
-          <p>Continuing practice in bug reporting, visual testing, and quality assurance.</p>
         </div>
       </div>
     </div>
@@ -640,7 +691,7 @@
     <div class="container">
       <div class="section-title">
         <span>Contact</span>
-        <h2>Let's Work Together</h2>
+        <h2>Let's Build Something Together</h2>
       </div>
       <div class="contact-grid">
         <div class="card contact-card">
@@ -656,7 +707,7 @@
         <div class="card contact-card">
           <i class="fa-brands fa-linkedin"></i>
           <h3>LinkedIn</h3>
-          <p><a href="www.linkedin.com/in/saw-jedidiah-050917gp" target="_blank">linkedin.com/Saw-Jedidiah</a></p>
+          <p><a href="https://www.linkedin.com/in/saw-jedidiah-050917gp" target="_blank">linkedin.com/in/saw-jedidiah</a></p>
         </div>
         <div class="card contact-card">
           <i class="fa-solid fa-briefcase"></i>
@@ -668,7 +719,7 @@
   </section>
 
   <footer>
-    <p>© 2026 Saw Jedidiah. All rights reserved.</p>
+    <p>© 2026 Saw Jedidiah. Junior Frontend Developer Portfolio.</p>
   </footer>
 </body>
 </html>
