@@ -183,7 +183,7 @@
       50% { transform: translateY(-14px); }
     }
 
-    .profile-icon {
+    . {
       width: 110px;
       height: 110px;
       border-radius: 50%;
@@ -192,6 +192,21 @@
       place-items: center;
       font-size: 45px;
       margin-bottom: 20px;
+    }
+
+    .profile-image{
+      width:140px;
+      height:140px;
+      margin-bottom:20px;
+    }
+    
+    .profile-image img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      border-radius:50%;
+      border:4px solid #38bdf8;
+      box-shadow:0 0 25px rgba(56,189,248,.5);
     }
 
     .profile-card h3 {
@@ -416,7 +431,9 @@
       </div>
 
       <div class="profile-card">
-        <div class="profile-icon"><i class="fa-solid fa-user-check"></i></div>
+        <div class="profile-image">
+          <img src="profile.jpeg" alt="Saw Jedidiah">
+        </div>
         <h3>Detail-Oriented Professional</h3>
         <p>Focused on data accuracy, clear communication, QA testing, and frontend learning.</p>
         <div class="stats">
