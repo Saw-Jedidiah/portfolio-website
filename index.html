@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Saw Jedidiah | Junior Frontend Developer</title>
+  <title>Saw Jedidiah | Frontend Developer Portfolio</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -11,6 +11,46 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
   <style>
+    :root {
+      --bg-main: #080b16;
+      --bg-soft: #0f172a;
+      --bg-card: rgba(255, 255, 255, 0.06);
+      --border: rgba(255, 255, 255, 0.12);
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --primary: #38bdf8;
+      --secondary: #8b5cf6;
+      --shadow: rgba(0, 0, 0, 0.28);
+    }
+
+    body.theme-blue {
+      --bg-main: #06111f;
+      --bg-soft: #0f172a;
+      --primary: #38bdf8;
+      --secondary: #2563eb;
+    }
+
+    body.theme-purple {
+      --bg-main: #12091f;
+      --bg-soft: #1e1b4b;
+      --primary: #a78bfa;
+      --secondary: #7c3aed;
+    }
+
+    body.theme-green {
+      --bg-main: #04140f;
+      --bg-soft: #052e24;
+      --primary: #34d399;
+      --secondary: #16a34a;
+    }
+
+    body.theme-orange {
+      --bg-main: #1c0f05;
+      --bg-soft: #431407;
+      --primary: #fb923c;
+      --secondary: #f97316;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -23,9 +63,14 @@
     }
 
     body {
-      background: #080b16;
-      color: #e5e7eb;
+      background:
+        radial-gradient(circle at top left, color-mix(in srgb, var(--primary) 25%, transparent), transparent 32%),
+        radial-gradient(circle at bottom right, color-mix(in srgb, var(--secondary) 28%, transparent), transparent 35%),
+        linear-gradient(135deg, var(--bg-main), var(--bg-soft));
+      color: var(--text);
       line-height: 1.7;
+      min-height: 100vh;
+      transition: background 0.4s ease;
     }
 
     a {
@@ -41,34 +86,33 @@
     .navbar {
       position: fixed;
       top: 0;
-      left: 0;
       width: 100%;
       z-index: 1000;
       background: rgba(8, 11, 22, 0.84);
       backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 1px solid var(--border);
     }
 
     .nav-content {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 18px 0;
+      padding: 16px 0;
     }
 
     .logo {
       font-size: 22px;
       font-weight: 800;
-      color: #ffffff;
+      color: var(--text);
     }
 
     .logo span {
-      color: #38bdf8;
+      color: var(--primary);
     }
 
     .nav-links {
       display: flex;
-      gap: 24px;
+      gap: 22px;
       list-style: none;
     }
 
@@ -80,47 +124,75 @@
     }
 
     .nav-links a:hover {
-      color: #38bdf8;
+      color: var(--primary);
     }
+
+    .theme-switcher {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 1001;
+      display: flex;
+      gap: 8px;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      backdrop-filter: blur(14px);
+    }
+
+    .theme-btn {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.55);
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .theme-btn:hover {
+      transform: scale(1.15);
+    }
+
+    .blue { background: #38bdf8; }
+    .purple { background: #8b5cf6; }
+    .green { background: #34d399; }
+    .orange { background: #fb923c; }
 
     .hero {
       min-height: 100vh;
       display: flex;
       align-items: center;
-      padding-top: 90px;
-      background:
-        radial-gradient(circle at top left, rgba(56, 189, 248, 0.25), transparent 35%),
-        radial-gradient(circle at bottom right, rgba(139, 92, 246, 0.25), transparent 38%),
-        linear-gradient(135deg, #080b16 0%, #0f172a 50%, #111827 100%);
+      padding-top: 95px;
     }
 
     .hero-grid {
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
-      gap: 50px;
+      gap: 55px;
       align-items: center;
     }
 
     .badge {
-      display: inline-block;
+      display: inline-flex;
       padding: 8px 16px;
-      border: 1px solid rgba(56, 189, 248, 0.35);
-      background: rgba(56, 189, 248, 0.08);
-      color: #7dd3fc;
+      border: 1px solid color-mix(in srgb, var(--primary) 45%, transparent);
+      background: color-mix(in srgb, var(--primary) 12%, transparent);
+      color: var(--primary);
       border-radius: 999px;
       font-size: 14px;
       margin-bottom: 20px;
     }
 
     .hero h1 {
-      font-size: clamp(42px, 7vw, 74px);
+      font-size: clamp(42px, 7vw, 76px);
       line-height: 1.08;
       margin-bottom: 18px;
       color: #ffffff;
     }
 
     .hero h1 span {
-      background: linear-gradient(90deg, #38bdf8, #a78bfa);
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
       -webkit-background-clip: text;
       color: transparent;
     }
@@ -133,7 +205,7 @@
     }
 
     .hero p {
-      color: #94a3b8;
+      color: var(--muted);
       max-width: 680px;
       margin-bottom: 30px;
     }
@@ -155,9 +227,9 @@
     }
 
     .btn-primary {
-      background: linear-gradient(90deg, #2563eb, #7c3aed);
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
       color: #ffffff;
-      box-shadow: 0 12px 30px rgba(37, 99, 235, 0.32);
+      box-shadow: 0 12px 30px color-mix(in srgb, var(--primary) 30%, transparent);
     }
 
     .btn-outline {
@@ -170,14 +242,14 @@
     }
 
     .profile-card {
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 30px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 32px;
       padding: 32px;
-      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 24px 80px var(--shadow);
       backdrop-filter: blur(16px);
-      animation: float 5s ease-in-out infinite;
       text-align: center;
+      animation: float 5s ease-in-out infinite;
     }
 
     @keyframes float {
@@ -186,8 +258,8 @@
     }
 
     .profile-image {
-      width: 170px;
-      height: 170px;
+      width: 180px;
+      height: 180px;
       margin: 0 auto 22px;
     }
 
@@ -196,18 +268,17 @@
       height: 100%;
       object-fit: cover;
       border-radius: 50%;
-      border: 4px solid #38bdf8;
-      box-shadow: 0 0 35px rgba(56, 189, 248, 0.55);
+      border: 4px solid var(--primary);
+      box-shadow: 0 0 35px color-mix(in srgb, var(--primary) 55%, transparent);
     }
 
     .profile-card h3 {
       font-size: 25px;
       margin-bottom: 8px;
-      color: #ffffff;
     }
 
     .profile-card p {
-      color: #94a3b8;
+      color: var(--muted);
     }
 
     .stats {
@@ -218,7 +289,7 @@
     }
 
     .stat-box {
-      background: rgba(255, 255, 255, 0.06);
+      background: rgba(255, 255, 255, 0.065);
       border-radius: 18px;
       padding: 16px;
       border: 1px solid rgba(255, 255, 255, 0.08);
@@ -227,11 +298,11 @@
     .stat-box strong {
       display: block;
       font-size: 20px;
-      color: #38bdf8;
+      color: var(--primary);
     }
 
     .stat-box span {
-      color: #94a3b8;
+      color: var(--muted);
       font-size: 13px;
     }
 
@@ -245,7 +316,7 @@
     }
 
     .section-title span {
-      color: #38bdf8;
+      color: var(--primary);
       font-weight: 600;
       font-size: 14px;
       text-transform: uppercase;
@@ -259,18 +330,18 @@
     }
 
     .card {
-      background: rgba(255, 255, 255, 0.055);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: var(--bg-card);
+      border: 1px solid var(--border);
       border-radius: 24px;
       padding: 28px;
       backdrop-filter: blur(14px);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+      box-shadow: 0 20px 60px var(--shadow);
       transition: 0.3s;
     }
 
     .card:hover {
       transform: translateY(-8px);
-      border-color: rgba(56, 189, 248, 0.45);
+      border-color: color-mix(in srgb, var(--primary) 50%, transparent);
     }
 
     .about-text p {
@@ -283,7 +354,7 @@
     .education-grid,
     .contact-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 20px;
     }
 
@@ -291,8 +362,8 @@
     .project-card i,
     .contact-card i,
     .education-card i {
-      font-size: 30px;
-      color: #38bdf8;
+      font-size: 32px;
+      color: var(--primary);
       margin-bottom: 15px;
     }
 
@@ -308,13 +379,29 @@
     .project-card p,
     .education-card p,
     .contact-card p {
-      color: #94a3b8;
+      color: var(--muted);
       font-size: 14px;
     }
 
     .project-card {
       display: flex;
       flex-direction: column;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .tag {
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--primary) 12%, transparent);
+      color: var(--primary);
+      font-size: 12px;
+      border: 1px solid color-mix(in srgb, var(--primary) 26%, transparent);
     }
 
     .project-links {
@@ -329,35 +416,33 @@
       border-radius: 999px;
       font-size: 13px;
       font-weight: 600;
-      background: rgba(56, 189, 248, 0.1);
-      border: 1px solid rgba(56, 189, 248, 0.25);
-      color: #7dd3fc;
+      background: color-mix(in srgb, var(--primary) 12%, transparent);
+      border: 1px solid color-mix(in srgb, var(--primary) 25%, transparent);
+      color: var(--primary);
     }
 
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 16px;
-    }
-
-    .tag {
-      padding: 6px 12px;
+    .progress {
+      height: 8px;
       border-radius: 999px;
-      background: rgba(56, 189, 248, 0.1);
-      color: #7dd3fc;
-      font-size: 12px;
-      border: 1px solid rgba(56, 189, 248, 0.22);
+      background: rgba(255, 255, 255, 0.08);
+      margin-top: 14px;
+      overflow: hidden;
+    }
+
+    .progress span {
+      display: block;
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
     }
 
     .timeline {
-      position: relative;
       display: grid;
       gap: 22px;
     }
 
     .timeline-item {
-      border-left: 3px solid #38bdf8;
+      border-left: 3px solid var(--primary);
       padding-left: 22px;
       position: relative;
     }
@@ -370,8 +455,8 @@
       width: 15px;
       height: 15px;
       border-radius: 50%;
-      background: #38bdf8;
-      box-shadow: 0 0 18px #38bdf8;
+      background: var(--primary);
+      box-shadow: 0 0 18px var(--primary);
     }
 
     .timeline-item h3 {
@@ -380,13 +465,13 @@
     }
 
     .timeline-item .company {
-      color: #38bdf8;
+      color: var(--primary);
       font-weight: 600;
       margin-bottom: 8px;
     }
 
     .timeline-item li {
-      color: #94a3b8;
+      color: var(--muted);
       font-size: 14px;
     }
 
@@ -399,10 +484,10 @@
       text-align: center;
       padding: 28px;
       color: #64748b;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      border-top: 1px solid var(--border);
     }
 
-    @media (max-width: 850px) {
+    @media (max-width: 900px) {
       .hero-grid {
         grid-template-columns: 1fr;
       }
@@ -419,19 +504,30 @@
         padding-top: 120px;
         padding-bottom: 50px;
       }
+    }
 
+    @media (max-width: 480px) {
       .profile-image {
         width: 145px;
         height: 145px;
+      }
+
+      .theme-switcher {
+        right: 50%;
+        transform: translateX(50%);
+      }
+
+      .hero h1 {
+        font-size: 40px;
       }
     }
   </style>
 </head>
 
-<body>
+<body class="theme-blue">
   <nav class="navbar">
     <div class="container nav-content">
-      <a href="#" class="logo">Saw<span>.</span></a>
+      <a href="#home" class="logo">Saw<span>.</span></a>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
@@ -443,6 +539,13 @@
     </div>
   </nav>
 
+  <div class="theme-switcher">
+    <button class="theme-btn blue" onclick="setTheme('theme-blue')" title="Blue Theme"></button>
+    <button class="theme-btn purple" onclick="setTheme('theme-purple')" title="Purple Theme"></button>
+    <button class="theme-btn green" onclick="setTheme('theme-green')" title="Green Theme"></button>
+    <button class="theme-btn orange" onclick="setTheme('theme-orange')" title="Orange Theme"></button>
+  </div>
+
   <header class="hero" id="home">
     <div class="container hero-grid">
       <div class="hero-text">
@@ -450,10 +553,10 @@
         <h1>Frontend Developer Building Modern <span>Web Experiences</span></h1>
         <h2>HTML • CSS • JavaScript • Bootstrap • Tailwind CSS • Laravel</h2>
         <p>
-          I create responsive, user-friendly, and modern websites using frontend technologies.
-          I enjoy turning ideas into clean digital experiences while continuously improving my
-          skills in web development, UI design, and problem solving.
+          I create responsive, user-friendly, and modern websites. I enjoy turning ideas into clean digital
+          experiences while improving my skills in frontend development, UI design, and problem solving.
         </p>
+
         <div class="buttons">
           <a href="#projects" class="btn btn-primary"><i class="fa-solid fa-laptop-code"></i> View Projects</a>
           <a href="#contact" class="btn btn-outline"><i class="fa-solid fa-paper-plane"></i> Contact Me</a>
@@ -462,10 +565,11 @@
 
       <div class="profile-card">
         <div class="profile-image">
-          <img src="profile1.JPEG" alt="Saw Jedidiah" />
+          <img src="profile.jpeg" alt="Saw Jedidiah" />
         </div>
         <h3>Junior Frontend Developer</h3>
-        <p>Passionate about responsive web design, clean layouts, and modern user experiences.</p>
+        <p>Focused on responsive web design, clean layouts, and modern user experiences.</p>
+
         <div class="stats">
           <div class="stat-box">
             <strong>HTML</strong>
@@ -494,23 +598,19 @@
         <span>About Me</span>
         <h2>Junior Frontend Developer</h2>
       </div>
+
       <div class="card about-text">
         <p>
           I am a Junior Frontend Developer with a background in computing and community development.
           I hold an NCC Education Level 4 Diploma in Computing and a Bachelor of Arts in English.
         </p>
         <p>
-          My technical skills include HTML, CSS, JavaScript, Bootstrap, Tailwind CSS, PHP, Laravel,
-          and MySQL. I enjoy creating responsive websites, improving user experiences, and learning
-          modern web technologies.
+          My technical skills include HTML, CSS, JavaScript, Bootstrap, Tailwind CSS, PHP, Laravel, and MySQL.
+          I enjoy creating responsive websites, improving user experiences, and learning modern web technologies.
         </p>
         <p>
-          My previous experience in community development, data collection, content moderation, and
-          quality assurance has strengthened my communication, attention to detail, and problem-solving abilities.
-        </p>
-        <p>
-          I am currently seeking opportunities to grow as a Frontend Developer and contribute to meaningful
-          digital products, websites, and web applications.
+          My previous experience in community development, data collection, content moderation, and quality assurance
+          has strengthened my communication, attention to detail, and problem-solving abilities.
         </p>
       </div>
     </div>
@@ -522,36 +622,48 @@
         <span>Tech Stack</span>
         <h2>Skills I Use</h2>
       </div>
+
       <div class="skills-grid">
         <div class="card skill-card">
           <i class="fa-brands fa-html5"></i>
           <h3>HTML5</h3>
-          <p>Semantic structure, clean markup, forms, and accessible website sections.</p>
+          <p>Semantic structure, clean markup, and accessible website sections.</p>
+          <div class="progress"><span style="width: 85%;"></span></div>
         </div>
+
         <div class="card skill-card">
           <i class="fa-brands fa-css3-alt"></i>
           <h3>CSS3</h3>
-          <p>Responsive layouts, modern UI, animations, flexbox, grid, and custom styling.</p>
+          <p>Responsive layouts, modern UI, flexbox, grid, and animations.</p>
+          <div class="progress"><span style="width: 80%;"></span></div>
         </div>
+
         <div class="card skill-card">
           <i class="fa-brands fa-js"></i>
           <h3>JavaScript</h3>
-          <p>Interactive web pages, DOM manipulation, basic logic, and dynamic features.</p>
+          <p>Interactive pages, DOM manipulation, logic, and dynamic features.</p>
+          <div class="progress"><span style="width: 65%;"></span></div>
         </div>
+
         <div class="card skill-card">
           <i class="fa-brands fa-bootstrap"></i>
           <h3>Bootstrap & Tailwind</h3>
-          <p>Fast responsive design, reusable components, spacing systems, and UI layouts.</p>
+          <p>Fast responsive design, reusable components, and UI layouts.</p>
+          <div class="progress"><span style="width: 70%;"></span></div>
         </div>
+
         <div class="card skill-card">
           <i class="fa-brands fa-php"></i>
           <h3>PHP & Laravel</h3>
-          <p>Backend fundamentals, Laravel basics, routing, CRUD concepts, and web app structure.</p>
+          <p>Backend fundamentals, routing, CRUD concepts, and app structure.</p>
+          <div class="progress"><span style="width: 55%;"></span></div>
         </div>
+
         <div class="card skill-card">
           <i class="fa-solid fa-database"></i>
           <h3>MySQL & Tools</h3>
-          <p>Database basics, GitHub, VS Code, Chrome DevTools, and remote collaboration tools.</p>
+          <p>Database basics, GitHub, VS Code, Chrome DevTools, and workflow.</p>
+          <div class="progress"><span style="width: 60%;"></span></div>
         </div>
       </div>
     </div>
@@ -563,6 +675,7 @@
         <span>Projects</span>
         <h2>Selected Web Development Work</h2>
       </div>
+
       <div class="projects-grid">
         <div class="card project-card">
           <i class="fa-solid fa-globe"></i>
@@ -580,22 +693,23 @@
         </div>
 
         <div class="card project-card">
-          <i class="fa-solid fa-cloud-sun"></i>
-          <h3>Weather App</h3>
-          <p>A weather application concept using API integration, city search, temperature display, and responsive design.</p>
+          <i class="fa-solid fa-calculator"></i>
+          <h3>Calculator App</h3>
+          <p>A modern calculator app with responsive layout, keyboard support, and calculation history.</p>
           <div class="tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
             <span class="tag">JavaScript</span>
-            <span class="tag">API</span>
-            <span class="tag">UI Design</span>
           </div>
           <div class="project-links">
-            <a href="#" class="project-link">Coming Soon</a>
+            <a href="#" class="project-link">Add Live Link</a>
+            <a href="#" class="project-link">Add GitHub Link</a>
           </div>
         </div>
 
         <div class="card project-card">
           <i class="fa-solid fa-list-check"></i>
-          <h3>Task Manager App</h3>
+          <h3>To-Do App</h3>
           <p>A task management app concept with add, complete, delete, and local storage features.</p>
           <div class="tags">
             <span class="tag">JavaScript</span>
@@ -608,13 +722,13 @@
         </div>
 
         <div class="card project-card">
-          <i class="fa-solid fa-database"></i>
-          <h3>Laravel CRUD System</h3>
-          <p>A basic CRUD system concept using Laravel, PHP, and MySQL for managing records.</p>
+          <i class="fa-solid fa-cloud-sun"></i>
+          <h3>Weather App</h3>
+          <p>A weather application concept using API integration, city search, temperature display, and responsive design.</p>
           <div class="tags">
-            <span class="tag">Laravel</span>
-            <span class="tag">PHP</span>
-            <span class="tag">MySQL</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">API</span>
+            <span class="tag">UI Design</span>
           </div>
           <div class="project-links">
             <a href="#" class="project-link">Coming Soon</a>
@@ -630,17 +744,20 @@
         <span>Education</span>
         <h2>Certificates & Qualifications</h2>
       </div>
+
       <div class="education-grid">
         <div class="card education-card">
           <i class="fa-solid fa-laptop-code"></i>
           <h3>NCC Education Level 4 Diploma in Computing</h3>
           <p>Includes website development, software development, database design, computer networks, and office solutions.</p>
         </div>
+
         <div class="card education-card">
           <i class="fa-solid fa-graduation-cap"></i>
           <h3>Bachelor of Arts (English)</h3>
           <p>Yangon University of Distance Education</p>
         </div>
+
         <div class="card education-card">
           <i class="fa-solid fa-code"></i>
           <h3>Continuous Web Development Learning</h3>
@@ -656,6 +773,7 @@
         <span>Experience</span>
         <h2>Professional Background</h2>
       </div>
+
       <div class="card timeline">
         <div class="timeline-item">
           <h3>Community Development Facilitator</h3>
@@ -666,6 +784,7 @@
             <li>Developed communication, reporting, and problem-solving skills.</li>
           </ul>
         </div>
+
         <div class="timeline-item">
           <h3>Volunteer Survey Enumerator</h3>
           <p class="company">Yangon Kayin Baptist Women Association</p>
@@ -675,6 +794,7 @@
             <li>Strengthened attention to detail and data handling skills.</li>
           </ul>
         </div>
+
         <div class="timeline-item">
           <h3>Content Moderation & Quality Review</h3>
           <p class="company">Online / Remote Work Experience</p>
@@ -694,22 +814,26 @@
         <span>Contact</span>
         <h2>Let's Build Something Together</h2>
       </div>
+
       <div class="contact-grid">
         <div class="card contact-card">
           <i class="fa-solid fa-envelope"></i>
           <h3>Email</h3>
           <p><a href="mailto:jedidiahsaw@gmail.com">jedidiahsaw@gmail.com</a></p>
         </div>
+
         <div class="card contact-card">
           <i class="fa-brands fa-github"></i>
           <h3>GitHub</h3>
           <p><a href="https://github.com/Saw-Jedidiah" target="_blank">github.com/Saw-Jedidiah</a></p>
         </div>
+
         <div class="card contact-card">
           <i class="fa-brands fa-linkedin"></i>
           <h3>LinkedIn</h3>
           <p><a href="https://www.linkedin.com/in/saw-jedidiah-050917gp" target="_blank">linkedin.com/in/saw-jedidiah</a></p>
         </div>
+
         <div class="card contact-card">
           <i class="fa-solid fa-briefcase"></i>
           <h3>Upwork</h3>
@@ -722,5 +846,17 @@
   <footer>
     <p>© 2026 Saw Jedidiah. Junior Frontend Developer Portfolio.</p>
   </footer>
+
+  <script>
+    function setTheme(themeName) {
+      document.body.className = themeName;
+      localStorage.setItem("portfolioTheme", themeName);
+    }
+
+    const savedTheme = localStorage.getItem("portfolioTheme");
+    if (savedTheme) {
+      document.body.className = savedTheme;
+    }
+  </script>
 </body>
 </html>
