@@ -350,13 +350,19 @@
     }
 
     .skills-grid,
-    .projects-grid,
     .education-grid,
     .contact-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 20px;
     }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      align-items: start;
+      )
 
     .skill-card i,
     .project-card i,
@@ -386,6 +392,7 @@
     .project-card {
       display: flex;
       flex-direction: column;
+      height: auto;
     }
 
     .tags {
